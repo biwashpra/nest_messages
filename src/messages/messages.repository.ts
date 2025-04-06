@@ -1,5 +1,8 @@
+import { Injectable } from '@nestjs/common';
 import { readFile, writeFile } from 'fs/promises';
 
+@Injectable()
+// The @Injectable() decorator marks the class as a provider that can be injected into other classes.
 export class MessagesRepository {
   async findOne(id: string) {
     const contents = await readFile('messages.json', 'utf-8');
